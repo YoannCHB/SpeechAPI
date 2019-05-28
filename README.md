@@ -1,6 +1,5 @@
 # SpeechAPI
-
-## SpeechRecognition for javascript environement.
+SpeechRecognition for javascript environement.
 ## Website test: https://yoannchb.github.io/SpeechAPI/index.html
 
 ----------------------------------
