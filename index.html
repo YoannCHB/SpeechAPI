@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpeechAPI</title>
+    <script src="SpeechAPI.js"></script>
+    <style>
+        #zone{
+            background: white;
+            border: 1px solid Gray;
+            border-radius: 50px;
+            width: calc(50% - 42px);
+            height: 40px;
+            font-size: 18px;
+            color: Gray;
+            position: absolute;
+            left: 45%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            outline: none;
+        }
+
+        button{
+            background: Red;
+            border: none;
+            position: absolute;
+            left: 70%;
+            top: 60%;
+            color: White;
+            outline: none;
+            font-size: 18px;
+            width: 42px;
+            height: 42px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 1s ease;
+        }
+
+        button:hover{
+            background: #DB6666;
+        }
+
+        h1{
+            color: Red;
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(calc(-50% - 42px), -150%);
+        }
+    </style>
+</head>
+<body>
+    <h1>SpeechAPI</h1>
+    <input type="text" id="zone" value="  "></input>
+    <button onclick="javascript:launch()">X</button>
+</body>
+    <script>
+        const g = new SpeechAPI({interimResults: true});
+        function launch(){
+            if(!g.started){
+                g.start(function(r){
+	                document.getElementById('zone').value = "  "+r;
+	                console.log(r);
+                });
+            } else {
+                document.getElementById('zone').value = "";
+                g.stop();
+            }
+        }
+    </script>
+</html>
